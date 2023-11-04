@@ -2,3 +2,48 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+body {
+  align-items: center;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+#board-frame {
+  background-color: white;
+  border-radius: 2vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 4vmin 0;
+  padding: 3vmin;
+}
+
+#column-buttons {
+  display: grid;
+  gap: 1vmin;
+  grid-template-columns: repeat(7, 10vmin);
+  margin-top: -1vmin;
+}
+
+#column-buttons div {
+  border-left: 5vmin solid transparent;
+  border-right: 5vmin solid transparent;
+  border-top: 5vmin solid darkgray;
+  transform: scale(0.75);
+}
+
+#board {
+  display: grid;
+  gap: 1vmin;
+  grid-template: repeat(6, 10vmin) / repeat(7, 10vmin);
+  margin-top: 1vmin;
+}
+
+#board div {
+  border: 0.15vmin solid darkgray;
+  border-radius: 50%;
+}
