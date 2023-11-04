@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+:root {
+  --current-player-color: red;
+}
+
 body {
   align-items: center;
   background-color: lightgray;
@@ -10,6 +14,27 @@ body {
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+}
+
+header {
+  font-family: Monoton;
+  font-size: 6vmin;
+  letter-spacing: 1vmin;
+}
+
+#red {
+  color: red;
+}
+
+#blue {
+  color: blue;
+}
+
+#game-state {
+  font-family: sans-serif;
+  font-size: 3vmin;
+  font-weight: bold;
+  margin-top: 4vmin;
 }
 
 #board-frame {
@@ -25,25 +50,56 @@ body {
 #column-buttons {
   display: grid;
   gap: 1vmin;
-  grid-template-columns: repeat(7, 10vmin);
+  grid-template-columns: repeat(7, 8vmin);
   margin-top: -1vmin;
 }
 
 #column-buttons div {
-  border-left: 5vmin solid transparent;
-  border-right: 5vmin solid transparent;
-  border-top: 5vmin solid darkgray;
+  border-left: 4vmin solid transparent;
+  border-right: 4vmin solid transparent;
+  border-top: 4vmin solid darkgray;
   transform: scale(0.75);
+  transition: 0.15s ease-in-out;
+}
+
+#column-buttons div:hover {
+  border-top-color: var(--current-player-color);
+  transform: scale(0.9);
 }
 
 #board {
   display: grid;
+  font-family: Monoton;
   gap: 1vmin;
-  grid-template: repeat(6, 10vmin) / repeat(7, 10vmin);
+  grid-template: repeat(6, 8vmin) / repeat(7, 8vmin);
   margin-top: 1vmin;
 }
 
 #board div {
+  align-items: center;
+  background-color: #f0f0f0;
   border: 0.15vmin solid darkgray;
   border-radius: 50%;
+  display: flex;
+  font-size: 8.2vmin;
+  justify-content: center;
+  padding-bottom: 0.4vmin;
+}
+
+button {
+  background-color: darkgray;
+  border: none;
+  border-radius: 2vmin;
+  color: lightgray;
+  font-family: sans-serif;
+  font-size: 2.5vmin;
+  font-weight: bold;
+  padding: 1.5vmin 5vmin;
+  transition: 0.15s ease-in-out;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.15);
 }
