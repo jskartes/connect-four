@@ -6,13 +6,13 @@ const players = {
 const root = document.querySelector(':root');
 const gameStateMessage = document.getElementById('game-state');
 const columnButtons = [...document.querySelectorAll('#column-buttons div')];
-const actionButton = document.querySelector('button');
+const resetGameButton = document.querySelector('button');
 
 let currentPlayer, currentBoard, winner;
 
 document.getElementById('column-buttons')
         .addEventListener('click', handleBoardClick);
-actionButton.addEventListener('click', handleActionButtonClick);
+resetGameButton.addEventListener('click', handleResetGameButtonClick);
 
 function init() {      
   currentPlayer = 1;
@@ -38,7 +38,7 @@ function handleBoardClick(event) {
   render();
 }  
 
-function handleActionButtonClick() {
+function handleResetGameButtonClick() {
   init();
 }  
 
@@ -67,7 +67,9 @@ function render() {
     });
   });
 
-  actionButton.textContent = 'Reset Game';
+  currentBoard.every(col => col.every(row => row === 0)) ?
+    resetGameButton.setAttribute('disabled', '') :
+    resetGameButton.removeAttribute('disabled');
 }
 
 function checkForWinner(ci, ri) {
